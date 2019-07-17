@@ -129,6 +129,7 @@ generic-pe5: begin clean gccversion build_generic-pe5 sizeafter finished  copy_g
 generic-pe5-button-pa0: begin clean gccversion build_generic-pe5-button-pa0 sizeafter finished  copy_generic-pe5-button-pa0 end
 generic-pb7: begin clean gccversion build_generic-pb7 sizeafter finished  copy_generic-pb7 end
 generic-pb0: begin clean gccversion build_generic-pb0 sizeafter finished  copy_generic-pb0 end
+generic-pb11: begin clean gccversion build_generic-pb11 sizeafter finished  copy_generic-pb11 end
 stbee :  begin clean gccversion build_stbee sizeafter finished  copy_stbee end
 naze32: begin clean gccversion build_naze32 sizeafter finished  copy_naze32 end
 generic-pb12: begin clean gccversion build_generic-pb12 sizeafter finished  copy_generic-pb12 end
@@ -323,6 +324,17 @@ copy_generic-pb0:
 	@echo "Copying to binaries folder"
 	@echo
 	cp $(TARGET).bin bootloader_only_binaries/generic_boot20_pb0.bin
+	@echo
+
+build_generic-pb11: TARGETFLAGS= -DTARGET_GENERIC_F103_PB11 $(DEFINES)
+# Set the linker script
+build_generic-pb11: LDFLAGS +=-T$(ST_LIB)/c_only_md_high_density.ld
+build_generic-pb11: elf bin lss sym
+copy_generic-pb11:
+	@echo
+	@echo "Copying to binaries folder"
+	@echo
+	cp $(TARGET).bin bootloader_only_binaries/generic_boot20_pb11.bin
 	@echo
 
 

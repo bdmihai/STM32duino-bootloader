@@ -270,6 +270,13 @@
     #define LED_ON_STATE        1
     #define BOOTLOADER_WAIT 30
 
+#elif defined TARGET_GENERIC_F103_PB11
+
+    #define LED_BANK            GPIOB
+    #define LED_PIN         11
+    #define LED_ON_STATE        1
+    #define BOOTLOADER_WAIT 30
+
 #elif defined TARGET_STBEE
 
     #define HAS_MAPLE_HARDWARE  1
